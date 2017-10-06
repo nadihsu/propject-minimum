@@ -1,0 +1,9 @@
+// Clearfix
+%cf {
+  @include cf;
+}
+
+// list style none
+%lsn {
+  list-style: none;
+}

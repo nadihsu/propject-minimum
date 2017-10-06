@@ -1,0 +1,75 @@
+// === 待整理 ===
+$lh: 1.5;
+$base-color: #444;
+$base-font: "微軟正黑體", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+
+// === Compass ===
+// --- Compass Setting ---
+$base-font-size: 16px;
+$base-line-height: 24px; // 16*1.5 = 24
+$round-to-nearest-half-line: true; // 橫線參考線
+
+$relative-font-sizing: false;
+$legacy-support-for-ie: false;
+$grid-background-baseline-height: $base-line-height;
+
+$rhythm-unit: "rem"; // 使用、rem、為單位做垂直韻律的輸出
+$rem-with-px-fallback: false;
+
+// --- Establish baseline with Compass ----
+@include establish-baseline;
+// === Font ===
+// font family
+%avenir {
+  font-family: "AvenirNext-DemiBoldItalic", "Avenir-HeavyOblique", "Arial", "STHeitiTC-Light", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+%helvetica {
+    font-family: "Helvetica Neue", "Helvetica", "Arial", "STHeitiTC-Light","Microsoft JhengHei", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+%subpixel {
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+body {
+  @extend %helvetica;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  // color: $global-color;
+}
+
+// headline
+#{headings()} {
+  @include reset-box-model;
+  font-weight: normal;
+}
+h1 {
+  @include adjust-font-size-to($font-size-xxl);
+}
+h2 {
+  @include adjust-font-size-to($font-size-xl);
+}
+h3 {
+  @include adjust-font-size-to($font-size-l);
+}
+h4 {
+  @include adjust-font-size-to($font-size-m);
+}
+h5 {
+  @include adjust-font-size-to($font-size-s);
+}
+h6 {
+  @include adjust-font-size-to($font-size-xs);
+}
+
+p {
+  @include leader(0);
+  @include trailer(1);
+  @include adjust-font-size-to($base-font-size);
+}

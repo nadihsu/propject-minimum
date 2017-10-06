@@ -1,0 +1,52 @@
+@import "include";
+@import "base/base";
+// Add RESET
+a,abbr,acronym,address,applet,
+b,big,blockquote,body,
+caption,center,cite,code,
+dd,del,dfn,div,dl,dt,
+em,fieldset,font,form,
+h1,h2,h3,h4,h5,h6,html,
+i,iframe,img,ins,kbd,
+label,legend,li,
+object,ol,p,pre,q,s,
+samp,small,span,strike,sub,sup,
+table,tbody,td,tfoot,th,thead,tr,tt,
+u,ul,var {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent
+}
+body {
+  line-height: 1;
+}
+a {
+  text-decoration: none;
+}
+ol, ul {
+  list-style: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+:focus {
+	outline: 0
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans');
+// 架構
+@import "modules/skeleton";
+// 頁首
+@import "modules/header";
+// 頁尾
+@import "modules/footer";
+// 元件
+@import "modules/component";

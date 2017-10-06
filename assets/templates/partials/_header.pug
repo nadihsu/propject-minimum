@@ -1,0 +1,18 @@
+header.header
+	.header_inner
+		h1#logo
+		nav#menu
+			ul.main-menu
+				each val, index in {about:'about',session:'session',access:'access'}
+					li
+						a(href="#"+index)= val
+		#m-menu
+			button(type="button").hamburger.hamburger--collapse
+				span.hamburger-box
+					span.hamburger-inner
+			.sidebar.is-hidden
+				ul.m-main-menu
+					each val in ['about','session','access','register']
+						li
+							a(href="#"+val)= val
+			

@@ -1,0 +1,156 @@
+// hide text
+@mixin hide-text {
+  font: 0/0 a; 
+  text-shadow: none;
+  color: transparent;
+}
+
+// box-model
+@mixin box-sizing($box-model) { // border, content, padding
+  -webkiet-box-sizing: $box-model;
+  -moz-box-sizing: $box-model;
+  box-sizing: $box-model;
+}
+
+// clearfix mixins
+@mixin cf {
+	&:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+}
+
+@mixin bp($mq-breakpoint, $mq-breakpoints: $breakpoints) {
+  $mq-media-query: "screen and";
+
+  @if $mq-breakpoint == landscape or $mq-breakpoint == portrait {
+    $mq-media-query: "#{$mq-media-query} (orientation: #{$mq-breakpoint})";
+  }
+  @else if $mq-breakpoint == retina {
+    $mq-media-query: "#{$mq-media-query} (-webkit-min-device-pixel-ratio: 2)," +
+                     "#{$mq-media-query} (min-resolution: 2dppx)";
+  }
+  @else {
+    // If $mq-breakpoint is a key that exists in
+    // $mq-breakpoints, get and use the value
+    @if map-has-key($mq-breakpoints, $mq-breakpoint) {
+      $mq-breakpoint: map-get($mq-breakpoints, $mq-breakpoint);
+    }
+    $mq-media-query: "#{$mq-media-query} (min-width: #{$mq-breakpoint})";
+  }
+
+  @media #{$mq-media-query} {
+    @content;
+  }
+}
+
+// 僞類狀態
+@mixin links( $link, $visited, $hover, $active) {
+  & {
+      color: $link;
+      &:visited {
+        color: $visited;
+      }
+      &:hover {
+        color: $hover;
+      }
+      &:active {
+        color: $active;
+      }
+  }
+}
+// use: @include links(#000, #222, #666, #aaa);
+
+@mixin btn ($c,$bdc,$bgc,$h-c,$h-bdc, $h-bgc, $d-c, $d-bdc, $d-bgc) {
+  color: $c;
+  background-color: $bgc;
+  border-color: $bdc;
+  &:hover {
+    color: $h-c;
+    border-color: $h-bdc;
+    background-color: $h-bgc;
+  }
+  &:disabled,
+  &.is-disabled {
+    color: $d-c;
+    border-color: $d-bdc;
+    background-color: $d-bgc;
+  }
+}
+
+// Adds a browser prefix to the property
+@mixin css3-prefix($property, $value) {
+  -webkit-#{$property}: #{$value};
+  -moz-#{$property}: #{$value};
+  -ms-#{$property}: #{$value};
+  -o-#{$property}: #{$value};
+  #{$property}: #{$value};
+}
+
+// Transform
+@mixin transform($params) {
+  @include css3-prefix(transform, $params);
+}
+// Transition
+@mixin transition($properties...) {
+  @if length($properties) >= 1 {
+    @include css3-prefix(transition, $properties);
+  }
+
+  @else {
+    @include css3-prefix(transition,  "all 0.2s ease-in-out 0s");
+  }
+}
+// Animation
+@mixin keyframe($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+@mixin animation($str) {
+  @include css3-prefix(animation, $str);
+}
+
+// Text overflow
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+// Position absolute 
+@mixin abs-pos($top: auto, $right: auto, $bottom: auto, $left: auto) {
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+  position: absolute;
+}
+@mixin font-size($sizeValue: 16) {
+  font-size: $sizeValue + px;
+  font-size: (0.0625 * $sizeValue) + rem;
+}
+// Line height
+@mixin line-height($heightValue: 24) {
+  line-height: $heightValue + px;
+  line-height: (0.125 * $heightValue) + rem;
+}
+
+// Rhytham 
+@mixin rhytham($sizeValue: 16, $heightValue: 24) {
+  @include font-size($sizeValue);
+  @include line-height($heightValue);
+}

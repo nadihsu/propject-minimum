@@ -1,0 +1,58 @@
+// Vertical Rhythm
+// step1: 計算baseline: base-line = font-size * line-height = 16 * 1.65 = 26.4px;
+// step2: 將baseline轉換成rem =  1.625rem (https://offroadcode.com/rem-calculator/)
+// step3: margin or padding 就會根據 baseline的距離所影響 vr(n)
+// step4: 一列字數最多於45-75個字
+// ----------------------
+
+// 斷點 of mappy-breakpoints
+$breakpoints: (
+	'small' : 768px,
+	'large' : 992px,
+	'wide'  : 1200px
+);
+
+// 載具
+$mappy-queries: (
+	'phone'    : mappy-bp(max-width 768px),
+	'phone-l'  : mappy-bp(max-width 768px orientation landscape),
+	'tp'       : mappy-bp(max-width 992px),
+	'tablet'   : mappy-bp(small),
+	'tablet-l' : mappy-bp(992px orientation landscape),
+	'tablet-p' : mappy-bp(768px orientation portrait),
+	'desktop'  : mappy-bp(large),
+	'hd'       : mappy-bp(wide)
+);
+
+// 全域字體 of typi
+$typi: (
+	null  : (16px, 1.5), //default font-size & line-height(歐文：1.2-1.5;中文：公認1.5,1.65-1.7)
+	// small : 18px,
+);
+
+// 單一標題 of typi
+$h1-font-map: (
+	null  : (32px, 1),
+	small : 36px
+);
+$h2-font-map: (
+	null  : (24px, 1.071),
+	small : 28px
+);
+$h3-font-map: (
+	null  : (18px, 1.2),
+	small : 20px
+);
+$h4-font-map: (
+	null : (16px, 1.5),
+);
+$h5-font-map: (
+	null : (15px, 1.4),
+);
+$h6-font-map: (
+	null : (13px, 1.384),
+);
+$p-font-map: (
+	null : (16px, 1.5),
+	// small: 18px
+)

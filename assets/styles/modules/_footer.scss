@@ -1,0 +1,69 @@
+@import "../include";
+
+.footer {
+	background-color: #000;
+	color: #fff;
+	font-size: 16px;
+	.footer_inner {
+		@include cf;
+		width: auto;
+		padding: 0 20px;
+		@include mappy-query(tablet) {
+			padding: 34px 20px ;
+			@include container(1000px 12);
+		}
+	}
+}
+.copy {
+	text-align: center;
+	@include mappy-query(phone) {
+		float: left;
+		span {
+			display: table-cell;
+			vertical-align: middle;
+			height: 69px;
+		}
+	}
+	@include mappy-query(tablet-p) {
+		float: left;
+		span {
+			display: table-cell;
+			vertical-align: middle;
+			height: 69px;
+		}
+	}
+}
+.back_to_top_wrap {
+	display: none;
+	margin-top: 10px;
+	@include mappy-query(phone) {
+		display: block;
+		float: right;
+	}
+	@include mappy-query(tablet-p) {
+		display: block;
+		float: right;
+	}
+}
+.back_to_top {
+	display: block;
+	border: 1px solid #fff;
+	color: #fff;
+	text-align: center;
+	text-transform: uppercase;
+	padding: 8px 0;
+	line-height: 19px;
+	width: 50px;
+	height: 50px;
+	span, i {
+		display: inline-block;
+		width: 100%;
+	}
+	i {
+		font-size: 28px;
+		line-height: 0.5;
+		&::before {
+			line-height: 0;
+		}
+	}
+}

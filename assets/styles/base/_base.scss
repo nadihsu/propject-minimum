@@ -1,0 +1,6 @@
+// Normalize CSS
+@include normalize();
+// Default BOX-MODEL
+*, *:after , *:before {
+  @include box-sizing(border-box);
+}

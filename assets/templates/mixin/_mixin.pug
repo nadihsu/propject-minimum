@@ -1,0 +1,45 @@
+//- image for placehold.it
+//- -----------------------------
+//- 參數：
+//-     width: image width in pixels
+//-     height: image height in pixels
+//-     text(option): text inside image
+//- -----------------------------
+//- 使用方法：
+//- +image(150,200,'Example')
+mixin image(width, height, text)
+  - text = text || "DEMO"
+  img(src="http://placehold.it/#{width}x#{height}&text=#{text}", alt="")
+
+//- copyright
+//- -----------------------------
+//- 參數：
+//-     year: 年份
+//-     projectName: 專案名稱
+//- -----------------------------
+//- 使用方法：
+//- +co(2016,'MyProject')
+mixin co(year, projectName)
+  .copyright Copyright © #{year} #{projectName} Inc. All rights reserved.
+
+//- social-account for font-awesome
+//- -----------------------------
+//-
+//- -----------------------------
+//- 使用方法：
+//- 想要可以把每種classname 與連結 放入 a
+//- mixin nlist(classname, n, text)
+//-   ul.social-nav
+//-     each i in Array(n)
+//-       +list(text)
+
+//- mixin list(classname, text)
+//-   li
+//-     a.fa(class="fa-#{classname}" href="#")
+mixin list(name, ...items)
+  ul(class="#{name}")
+    each item in items
+      li
+        a.fa(class="fa-#{item}" href="#")
+
+

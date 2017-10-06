@@ -1,0 +1,18 @@
+// Skeleton Setting
+html, body {
+  color: $ftColr;
+  // background-color: $bgColr;
+  -webkit-font-smoothing: antialiased;
+  // height: 100%;
+}
+body {
+  font-family: $ftDefault;
+  font-size: $fsM;
+  color: #fff;
+  @include mappy-query(tablet) {
+    font-size: $fsD;
+  }
+}
+.page_content {
+  position: relative;
+}

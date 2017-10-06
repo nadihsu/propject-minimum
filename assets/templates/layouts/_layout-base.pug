@@ -1,0 +1,36 @@
+//- Basic mixin
+include ../mixin/_mixin
+//- Base Config
+include ../config/_setting
+doctype html
+html(lang="zh-TW" dir="ltr")
+  block page-data
+  head
+    //- Default Meta Info
+    include _layout-head
+    include _layout-favicon
+    include _layout-og
+    include _layout-tw
+    //- Vendor Tools
+    //- include ../vendor/_layout-ga
+    //- include ../vendor/_layout-fp
+    block site-styles
+      include _layout-styles
+    //- Below to IE9 
+    <!--[if lt IE 9]>
+    script(src="//html5shim.googlecode.com/svn/trunk/html5.js")
+    <![endif]-->
+  //- ./ end head
+  body.homepage.page_content
+    .page_outer
+      .page
+        //- Header Block
+        include ../partials/_header
+        block main
+        //- Footer Block
+    include ../partials/_footer
+    //- overlay
+    .overlay
+    block site-scripts
+      include _layout-scripts
+  //- ./ end body

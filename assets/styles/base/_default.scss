@@ -1,0 +1,92 @@
+// 建立一個context map
+$contexts: () !default;
+* {
+    @include box-sizing(border-box);
+}
+* html {
+    font-size: 100%;
+}
+// https://github.com/shinnn/lt-ie-9
+html.lt-ie9 {
+    font-size: 120%;
+}
+
+html {
+    @include typi-base();
+}
+
+body {
+    font-family: $base-font;
+    font-weight: 400;
+    font-style: normal;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    color: #444444;
+}
+/* *************************
+ * 字體
+ * *************************/
+
+#{headings(1,6)} {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-weight: normal;
+  // margin: 1rem*1.5 0;
+}
+h1 {
+    @include typi($h1-font-map);
+}
+h2 {
+    @include typi($h2-font-map);
+}
+h3 {
+    @include typi($h3-font-map);
+}
+h4 {
+    @include typi($h4-font-map);
+}
+h5 {
+    @include typi($h5-font-map);
+}
+h6 {
+    @include typi($h6-font-map);
+}
+p {
+    position: relative;
+    @include typi($p-font-map);
+}
+/* *************************
+ * 清單
+ * *************************/
+ol, ul {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-left: 24px;
+}
+ol ol,
+ol ul,
+ul ol,
+ul ul {
+    margin: 0;
+}
+dl {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+dl dt {
+    font-weight: bold;
+}
+dl dd {
+    margin: 0;
+}
+/* *************************
+ * 連結
+ * *************************/
+a {
+    color: $base-color;
+    img {
+        border: none;
+    }
+}
