@@ -1,5 +1,8 @@
+#dev stage
 config.codekit3
 gulpfile.js
 package.json
 yarn.lock
-bower.json
+#build stage
+node_modules
+build
